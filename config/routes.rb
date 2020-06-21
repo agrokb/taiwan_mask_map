@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  get "/maskapi",to: "maskapi#index"
+  namespace :api do
+    namespace :v1 do
+         get "/mask",to: "mask#index"
+    end
+  end
 end

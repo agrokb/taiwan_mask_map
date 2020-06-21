@@ -1,4 +1,4 @@
-class MaskapiController < ApplicationController
+class Api::V1::MaskController < ApplicationController
    #encoding:UTF-8
    def index
    datas = HTTParty.get('https://quality.data.gov.tw/dq_download_json.php?nid=116285&md5_url=2150b333756e64325bdbc4a5fd45fad1')
@@ -16,7 +16,7 @@ class MaskapiController < ApplicationController
         f[:mask_child] = c["兒童口罩剩餘數"]
         f[:update_time] = c["來源資料時間"]
       data.push(f)
-     end
+     end 
       @response = data
       render json: @response
      end
